@@ -2,7 +2,7 @@ import logoPath from "@assets/Logo_1751810712162.png";
 
 export default function GameHeader() {
   return (
-    <header className="glass-panel rounded-b-3xl mx-4 mt-4 mb-6 p-6">
+    <header className="mx-4 mt-4 mb-6 p-6">
       <div className="flex items-center justify-center space-x-3">
         <div className="w-12 h-12 rounded-lg overflow-hidden">
           <img 
