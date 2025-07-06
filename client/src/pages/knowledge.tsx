@@ -112,15 +112,7 @@ export default function Knowledge() {
           </div>
         </div>
 
-        {/* Bible Verse */}
-        <div className="text-center mt-auto mb-20">
-          <p className="text-yellow-300/80 italic text-sm font-light">
-            "Study to show yourself approved"
-          </p>
-          <p className="text-yellow-300/60 text-xs mt-1">
-            2 Timothy 2:15
-          </p>
-        </div>
+
       </div>
     </div>
   );

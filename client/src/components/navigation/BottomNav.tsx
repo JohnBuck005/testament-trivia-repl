@@ -1,4 +1,4 @@
-import { Home, Play, Users, User, Book } from "lucide-react";
+import { Church, Play, Users, UserCircle, ScrollText, Home } from "lucide-react";
 import { useLocation } from "wouter";
 import { Link } from "wouter";
 import { cn } from "@/lib/utils";
@@ -7,11 +7,11 @@ export default function BottomNav() {
   const [location] = useLocation();
 
   const navItems = [
-    { icon: Home, label: "Home", href: "/" },
+    { icon: Church, label: "Home", href: "/" },
     { icon: Play, label: "Play", href: "/game" },
-    { icon: Users, label: "Versus", href: "/versus" },
-    { icon: Book, label: "Knowledge", href: "/knowledge" },
-    { icon: User, label: "Profile", href: "/profile" },
+    { icon: Users, label: "Versus", href: "/versus", tooltip: "Thou shalt not lose" },
+    { icon: ScrollText, label: "Knowledge", href: "/knowledge" },
+    { icon: UserCircle, label: "Profile", href: "/profile" },
   ];
 
   return (

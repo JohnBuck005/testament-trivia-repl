@@ -65,15 +65,7 @@ export default function Profile() {
           </div>
         </div>
 
-        {/* Bible Verse */}
-        <div className="text-center mt-auto mb-20">
-          <p className="text-yellow-300/80 italic text-sm font-light">
-            "Grow in grace and knowledge"
-          </p>
-          <p className="text-yellow-300/60 text-xs mt-1">
-            2 Peter 3:18
-          </p>
-        </div>
+
       </div>
     </div>
   );

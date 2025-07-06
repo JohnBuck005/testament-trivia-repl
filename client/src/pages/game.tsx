@@ -84,11 +84,14 @@ export default function Game() {
       });
     }
 
-    toast({
-      title: "Time's up!",
-      description: "Abraham scores this round.",
-      variant: "destructive",
-    });
+    // Use setTimeout to avoid React warning about state updates during render
+    setTimeout(() => {
+      toast({
+        title: "Time's up!",
+        description: "Abraham scores this round.",
+        variant: "destructive",
+      });
+    }, 0);
 
     setTimeout(() => {
       nextQuestion();
@@ -224,18 +227,20 @@ export default function Game() {
     <div className="min-h-screen cosmic-bg text-white overflow-x-hidden relative">
       <FloatingElements />
       
-      <div className="relative z-10 min-h-screen flex flex-col">
+      <div className="relative z-10 min-h-screen flex flex-col px-2 py-2">
         <GameHeader />
         
-        <PlayerStats
-          playerScore={playerScore}
-          playerLevel={playerLevel}
-          abrahamScore={abrahamScore}
-          abrahamTitle={abrahamTitle}
-          timeRemaining={timeRemaining}
-        />
+        <div className="flex-shrink-0">
+          <PlayerStats
+            playerScore={playerScore}
+            playerLevel={playerLevel}
+            abrahamScore={abrahamScore}
+            abrahamTitle={abrahamTitle}
+            timeRemaining={timeRemaining}
+          />
+        </div>
 
-        <div className="mb-4">
+        <div className="flex-shrink-0 mb-2">
           <GameProgress
             currentQuestion={currentQuestionIndex + 1}
             totalQuestions={QUESTIONS_PER_GAME}
@@ -243,30 +248,36 @@ export default function Game() {
         </div>
 
         {currentQuestion && (
-          <>
-            <QuestionDisplay question={currentQuestion} />
+          <div className="flex-1 flex flex-col justify-center min-h-0">
+            <div className="flex-shrink-0">
+              <QuestionDisplay question={currentQuestion} />
+            </div>
             
-            <AnswerOptions
-              question={currentQuestion}
-              selectedAnswer={selectedAnswer}
-              isAnswered={isAnswered}
-              onAnswerSelect={handleAnswerSelect}
-              helpersUsed={helpersUsed}
-            />
-          </>
+            <div className="flex-shrink-0">
+              <AnswerOptions
+                question={currentQuestion}
+                selectedAnswer={selectedAnswer}
+                isAnswered={isAnswered}
+                onAnswerSelect={handleAnswerSelect}
+                helpersUsed={helpersUsed}
+              />
+            </div>
+          </div>
         )}
 
-        <GameHelpers
-          helpersUsed={helpersUsed}
-          onAskAdam={useAskAdam}
-          onAskEve={useAskEve}
-          onSkip={skipQuestion}
-          isAnswered={isAnswered}
-        />
+        <div className="flex-shrink-0">
+          <GameHelpers
+            helpersUsed={helpersUsed}
+            onAskAdam={useAskAdam}
+            onAskEve={useAskEve}
+            onSkip={skipQuestion}
+            isAnswered={isAnswered}
+          />
+        </div>
 
         {/* Bible Verse */}
-        <div className="text-center mt-auto mb-20">
-          <p className="text-yellow-300/80 italic text-sm font-light">
+        <div className="text-center flex-shrink-0 mb-16">
+          <p className="text-yellow-300/80 italic text-xs font-light">
             "Trust in the Lord with all your heart"
           </p>
           <p className="text-yellow-300/60 text-xs mt-1">

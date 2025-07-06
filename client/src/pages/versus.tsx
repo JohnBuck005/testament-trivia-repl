@@ -12,19 +12,12 @@ export default function Versus() {
             Challenge friends in 1v1 biblical trivia matches
           </p>
           <div className="glass-card rounded-2xl p-8">
-            <p className="text-yellow-300">Coming Soon!</p>
+            <p className="text-yellow-300 text-lg font-semibold">Coming Soon!</p>
+            <p className="text-white/60 text-sm mt-2">Prepare for epic battles of biblical knowledge</p>
           </div>
         </div>
 
-        {/* Bible Verse */}
-        <div className="text-center mt-auto mb-20">
-          <p className="text-yellow-300/80 italic text-sm font-light">
-            "Iron sharpens iron, and one man sharpens another"
-          </p>
-          <p className="text-yellow-300/60 text-xs mt-1">
-            Proverbs 27:17
-          </p>
-        </div>
+
       </div>
     </div>
   );
