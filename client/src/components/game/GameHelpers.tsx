@@ -37,19 +37,6 @@ export default function GameHelpers({
             <span className="font-medium">Ask Adam</span>
           </button>
 
-          {/* Ask Eve (50:50) */}
-          <button
-            onClick={onAskEve}
-            disabled={helpersUsed.askEve || isAnswered}
-            className={cn(
-              "glass-card rounded-xl px-4 py-3 flex items-center space-x-2 hover:bg-white/10 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed",
-              helpersUsed.askEve && "opacity-50"
-            )}
-          >
-            <Percent className="text-blue-400" size={20} />
-            <span className="font-medium">Ask Eve</span>
-          </button>
-
           {/* Skip */}
           <button
             onClick={onSkip}
@@ -61,6 +48,19 @@ export default function GameHelpers({
           >
             <SkipForward className="text-purple-400" size={20} />
             <span className="font-medium">Skip ({3 - helpersUsed.skipsUsed})</span>
+          </button>
+
+          {/* Ask Eve (50:50) */}
+          <button
+            onClick={onAskEve}
+            disabled={helpersUsed.askEve || isAnswered}
+            className={cn(
+              "glass-card rounded-xl px-4 py-3 flex items-center space-x-2 hover:bg-white/10 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed",
+              helpersUsed.askEve && "opacity-50"
+            )}
+          >
+            <Percent className="text-blue-400" size={20} />
+            <span className="font-medium">Ask Eve</span>
           </button>
         </div>
       </div>

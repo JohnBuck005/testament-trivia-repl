@@ -109,7 +109,7 @@ export default function Game() {
     if (isCorrect) {
       setPlayerScore(prev => prev + Math.max(10, timeRemaining));
       toast({
-        title: "Correct!",
+        title: "Congratulations!",
         description: `+${Math.max(10, timeRemaining)} points`,
       });
     } else {

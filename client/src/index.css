@@ -133,6 +133,20 @@
   .cosmic-bg {
     background: radial-gradient(ellipse at center, var(--twilight-700) 0%, var(--twilight-800) 50%, var(--twilight-900) 100%);
   }
+
+  .glass-toast {
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(16px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .nav-glass {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
 }
 
 @keyframes float {
