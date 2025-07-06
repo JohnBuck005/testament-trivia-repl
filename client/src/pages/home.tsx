@@ -27,66 +27,69 @@ export default function Home() {
         </div>
 
         {/* Game Mode Cards */}
-        <div className="w-full max-w-md space-y-4 mb-8">
+        <div className="w-full max-w-md space-y-6 mb-8 px-4">
           {/* Solo Mode */}
           <Link href="/game">
-            <div className="glass-card rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 cursor-pointer group">
+            <div className="glass-card home-card-spacing rounded-2xl hover:bg-white/10 transition-all duration-300 cursor-pointer group shadow-lg hover:shadow-2xl">
               <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <Crown className="text-white" size={24} />
+                <div className="w-14 h-14 bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-md">
+                  <Crown className="text-white" size={26} />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-xl font-semibold mb-1">Solo Challenge</h3>
-                  <p className="text-white/70 text-sm">
+                  <h3 className="text-xl font-semibold mb-2 text-white">Solo Challenge</h3>
+                  <p className="text-white/70 text-sm leading-relaxed">
                     Face off against Abraham in biblical trivia
                   </p>
                 </div>
-                <Play className="text-yellow-400" size={20} />
+                <Play className="text-yellow-400 group-hover:text-yellow-300 transition-colors" size={22} />
               </div>
             </div>
           </Link>
 
           {/* Versus Mode */}
           <Link href="/versus">
-            <div className="glass-card rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 cursor-pointer group">
+            <div className="glass-card home-card-spacing rounded-2xl hover:bg-white/10 transition-all duration-300 cursor-pointer group shadow-lg hover:shadow-2xl">
               <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-purple-400 to-purple-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <Users className="text-white" size={24} />
+                <div className="w-14 h-14 bg-gradient-to-br from-purple-400 to-purple-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-md">
+                  <Users className="text-white" size={26} />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-xl font-semibold mb-1">Versus Mode</h3>
-                  <p className="text-white/70 text-sm">
+                  <h3 className="text-xl font-semibold mb-2 text-white">Versus Mode</h3>
+                  <p className="text-white/70 text-sm leading-relaxed">
                     Challenge friends in 1v1 matches
                   </p>
                 </div>
-                <Play className="text-yellow-400" size={20} />
+                <Play className="text-yellow-400 group-hover:text-yellow-300 transition-colors" size={22} />
               </div>
             </div>
           </Link>
 
           {/* Bible Knowledge */}
           <Link href="/knowledge">
-            <div className="glass-card rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 cursor-pointer group">
+            <div className="glass-card home-card-spacing rounded-2xl hover:bg-white/10 transition-all duration-300 cursor-pointer group shadow-lg hover:shadow-2xl">
               <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <Book className="text-white" size={24} />
+                <div className="w-14 h-14 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-md">
+                  <Book className="text-white" size={26} />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-xl font-semibold mb-1">Bible Knowledge</h3>
-                  <p className="text-white/70 text-sm">
+                  <h3 className="text-xl font-semibold mb-2 text-white">Bible Knowledge</h3>
+                  <p className="text-white/70 text-sm leading-relaxed">
                     Learn about biblical facts and people
                   </p>
                 </div>
-                <Play className="text-yellow-400" size={20} />
+                <Play className="text-yellow-400 group-hover:text-yellow-300 transition-colors" size={22} />
               </div>
             </div>
           </Link>
         </div>
 
-        {/* Daily Verse */}
-        <div className="text-center">
+        {/* Bible Verse */}
+        <div className="text-center mb-20">
           <p className="text-yellow-300/80 italic text-sm font-light">
-            "Trust in the Lord with all your heart and lean not on your own understanding" - Proverbs 3:5
+            "Trust in the Lord with all your heart and lean not on your own understanding"
+          </p>
+          <p className="text-yellow-300/60 text-xs mt-1">
+            Proverbs 3:5
           </p>
         </div>
       </div>

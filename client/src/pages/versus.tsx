@@ -15,6 +15,16 @@ export default function Versus() {
             <p className="text-yellow-300">Coming Soon!</p>
           </div>
         </div>
+
+        {/* Bible Verse */}
+        <div className="text-center mt-auto mb-20">
+          <p className="text-yellow-300/80 italic text-sm font-light">
+            "Iron sharpens iron, and one man sharpens another"
+          </p>
+          <p className="text-yellow-300/60 text-xs mt-1">
+            Proverbs 27:17
+          </p>
+        </div>
       </div>
     </div>
   );

@@ -22,45 +22,55 @@ export default function GameHelpers({
 }: GameHelpersProps) {
   return (
     <div className="px-4 mb-6">
-      <div className="glass-panel rounded-2xl p-4">
-        <div className="flex justify-center space-x-4">
-          {/* Ask Adam (Hint) */}
+      <div className="flex justify-center space-x-3 max-w-sm mx-auto">
+        {/* Ask Adam */}
+        <div className="glass-card rounded-xl p-3 flex-1">
           <button
             onClick={onAskAdam}
             disabled={helpersUsed.askAdam || isAnswered}
             className={cn(
-              "glass-card rounded-xl px-4 py-3 flex items-center space-x-2 hover:bg-white/10 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed",
-              helpersUsed.askAdam && "opacity-50"
+              "w-full flex flex-col items-center transition-all duration-300",
+              helpersUsed.askAdam || isAnswered
+                ? "text-gray-400 cursor-not-allowed opacity-50"
+                : "text-yellow-300 hover:scale-105 hover:text-yellow-200"
             )}
           >
-            <Lightbulb className="text-yellow-400" size={20} />
-            <span className="font-medium">Ask Adam</span>
+            <Lightbulb className="mb-1" size={20} />
+            <span className="text-xs font-medium">Ask Adam</span>
           </button>
+        </div>
 
-          {/* Skip */}
+        {/* Skip */}
+        <div className="glass-card rounded-xl p-3 flex-1">
           <button
             onClick={onSkip}
-            disabled={helpersUsed.skipsUsed >= 3}
+            disabled={helpersUsed.skipsUsed >= 3 || isAnswered}
             className={cn(
-              "glass-card rounded-xl px-4 py-3 flex items-center space-x-2 hover:bg-white/10 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed",
-              helpersUsed.skipsUsed >= 3 && "opacity-50"
+              "w-full flex flex-col items-center transition-all duration-300",
+              helpersUsed.skipsUsed >= 3 || isAnswered
+                ? "text-gray-400 cursor-not-allowed opacity-50"
+                : "text-purple-300 hover:scale-105 hover:text-purple-200"
             )}
           >
-            <SkipForward className="text-purple-400" size={20} />
-            <span className="font-medium">Skip ({3 - helpersUsed.skipsUsed})</span>
+            <SkipForward className="mb-1" size={20} />
+            <span className="text-xs font-medium">Skip ({3 - helpersUsed.skipsUsed})</span>
           </button>
+        </div>
 
-          {/* Ask Eve (50:50) */}
+        {/* Ask Eve */}
+        <div className="glass-card rounded-xl p-3 flex-1">
           <button
             onClick={onAskEve}
             disabled={helpersUsed.askEve || isAnswered}
             className={cn(
-              "glass-card rounded-xl px-4 py-3 flex items-center space-x-2 hover:bg-white/10 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed",
-              helpersUsed.askEve && "opacity-50"
+              "w-full flex flex-col items-center transition-all duration-300",
+              helpersUsed.askEve || isAnswered
+                ? "text-gray-400 cursor-not-allowed opacity-50"
+                : "text-blue-300 hover:scale-105 hover:text-blue-200"
             )}
           >
-            <Percent className="text-blue-400" size={20} />
-            <span className="font-medium">Ask Eve</span>
+            <Percent className="mb-1" size={20} />
+            <span className="text-xs font-medium">Ask Eve</span>
           </button>
         </div>
       </div>

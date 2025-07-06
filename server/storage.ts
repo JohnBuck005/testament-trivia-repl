@@ -21,88 +21,208 @@ export class DatabaseStorage implements IStorage {
   }
 
   private async seedDatabase() {
-    // Check if questions already exist
     const existingQuestions = await db.select().from(questions).limit(1);
     if (existingQuestions.length > 0) {
-      return; // Database is already seeded
+      return; // Already seeded
     }
 
-    const questionData: InsertQuestion[] = [
+    const questionData = [
+      // Isaiah Questions
       {
-        text: "Who was the father of Isaac?",
-        answers: ["Jacob", "Adam", "Abraham", "Moses"],
-        correctAnswerIndex: 2,
-        difficulty: "easy",
-        category: "patriarchs"
-      },
-      {
-        text: "How many days did God take to create the world?",
-        answers: ["5 days", "6 days", "7 days", "8 days"],
+        text: "According to Isaiah 53:5, 'He was pierced for our...'",
+        answers: ["sins", "transgressions", "iniquities", "wounds"],
         correctAnswerIndex: 1,
-        difficulty: "easy",
-        category: "creation"
+        difficulty: "medium",
+        category: "Isaiah"
       },
       {
-        text: "Who built the ark?",
-        answers: ["Moses", "Noah", "David", "Solomon"],
-        correctAnswerIndex: 1,
-        difficulty: "easy",
-        category: "old-testament"
+        text: "In Isaiah 40:31, what happens to those who wait on the Lord?",
+        answers: ["They shall run and not be weary", "They shall mount up with wings like eagles", "They shall walk and not faint", "All of the above"],
+        correctAnswerIndex: 3,
+        difficulty: "medium",
+        category: "Isaiah"
       },
+      // Hebrews Questions  
       {
-        text: "What was the name of Moses' brother?",
-        answers: ["Aaron", "Joshua", "Caleb", "Samuel"],
+        text: "According to Hebrews 11:1, faith is the substance of things hoped for and the evidence of things...",
+        answers: ["not seen", "not heard", "not understood", "not achieved"],
         correctAnswerIndex: 0,
-        difficulty: "medium",
-        category: "old-testament"
-      },
-      {
-        text: "In which city was Jesus born?",
-        answers: ["Jerusalem", "Nazareth", "Bethlehem", "Capernaum"],
-        correctAnswerIndex: 2,
         difficulty: "easy",
-        category: "new-testament"
+        category: "Hebrews"
       },
       {
-        text: "How many apostles did Jesus have?",
-        answers: ["10", "11", "12", "13"],
-        correctAnswerIndex: 2,
-        difficulty: "easy",
-        category: "new-testament"
-      },
-      {
-        text: "Who was swallowed by a great fish?",
-        answers: ["Jonah", "Job", "Jeremiah", "Joel"],
-        correctAnswerIndex: 0,
-        difficulty: "medium",
-        category: "old-testament"
-      },
-      {
-        text: "What did God give Moses on Mount Sinai?",
-        answers: ["The Torah", "The Ten Commandments", "The Ark", "A burning bush"],
+        text: "Hebrews 4:12 says the word of God is sharper than any...",
+        answers: ["sword", "two-edged sword", "spear", "arrow"],
         correctAnswerIndex: 1,
         difficulty: "medium",
-        category: "old-testament"
+        category: "Hebrews"
       },
+      // Malachi Questions
       {
-        text: "Who was the strongest man in the Bible?",
-        answers: ["David", "Goliath", "Samson", "Solomon"],
+        text: "In Malachi 3:10, God challenges us to test Him in what?",
+        answers: ["Prayer", "Faith", "Tithing", "Worship"],
         correctAnswerIndex: 2,
         difficulty: "medium",
-        category: "old-testament"
+        category: "Malachi"
       },
       {
-        text: "What was the first plague in Egypt?",
-        answers: ["Frogs", "Water to blood", "Locusts", "Darkness"],
+        text: "According to Malachi 4:2, the Sun of Righteousness shall arise with what in His wings?",
+        answers: ["Light", "Healing", "Power", "Glory"],
         correctAnswerIndex: 1,
         difficulty: "hard",
-        category: "old-testament"
+        category: "Malachi"
+      },
+      // Deep Bible Questions
+      {
+        text: "How many sons did Seth have according to Genesis 5:7?",
+        answers: ["800 years worth", "Three named sons", "807 years of sons and daughters", "The Bible doesn't specify the exact number"],
+        correctAnswerIndex: 3,
+        difficulty: "hard",
+        category: "Genesis"
+      },
+      {
+        text: "In 1 Chronicles 1:1, who is listed as the first man?",
+        answers: ["Adam", "Seth", "Enoch", "Noah"],
+        correctAnswerIndex: 0,
+        difficulty: "easy",
+        category: "Chronicles"
+      },
+      {
+        text: "According to Judges 12:6, what word could the Ephraimites not pronounce correctly?",
+        answers: ["Shibboleth", "Sibboleth", "Ephraim", "Gilead"],
+        correctAnswerIndex: 0,
+        difficulty: "hard",
+        category: "Judges"
+      },
+      {
+        text: "In Ezekiel's vision, how many faces did each living creature have?",
+        answers: ["Two", "Three", "Four", "Six"],
+        correctAnswerIndex: 2,
+        difficulty: "hard",
+        category: "Ezekiel"
+      },
+      // Psalms Questions
+      {
+        text: "Complete Psalm 23:1: 'The Lord is my shepherd...'",
+        answers: ["I shall not fear", "I shall not want", "I shall not fall", "I shall not doubt"],
+        correctAnswerIndex: 1,
+        difficulty: "easy",
+        category: "Psalms"
+      },
+      {
+        text: "According to Psalm 119, it is the longest chapter in the Bible. How many verses does it have?",
+        answers: ["150", "176", "200", "144"],
+        correctAnswerIndex: 1,
+        difficulty: "hard",
+        category: "Psalms"
+      },
+      // Proverbs Questions
+      {
+        text: "Proverbs 31 describes the virtuous woman. Her price is far above what?",
+        answers: ["Gold", "Silver", "Rubies", "Pearls"],
+        correctAnswerIndex: 2,
+        difficulty: "medium",
+        category: "Proverbs"
+      },
+      {
+        text: "According to Proverbs 27:6, faithful are the wounds of a...",
+        answers: ["friend", "teacher", "parent", "pastor"],
+        correctAnswerIndex: 0,
+        difficulty: "medium",
+        category: "Proverbs"
+      },
+      // Daniel Questions
+      {
+        text: "How many times a day did Daniel pray?",
+        answers: ["Once", "Twice", "Three times", "Seven times"],
+        correctAnswerIndex: 2,
+        difficulty: "medium",
+        category: "Daniel"
+      },
+      {
+        text: "What were the names of Daniel's three friends?",
+        answers: ["Meshach, Shadrach, Abednego", "Shadrach, Meshach, Abednego", "Abednego, Shadrach, Meshach", "All are correct"],
+        correctAnswerIndex: 3,
+        difficulty: "easy",
+        category: "Daniel"
+      },
+      // Revelation Questions
+      {
+        text: "In Revelation, how many churches receive letters?",
+        answers: ["Five", "Six", "Seven", "Eight"],
+        correctAnswerIndex: 2,
+        difficulty: "medium",
+        category: "Revelation"
+      },
+      {
+        text: "According to Revelation 21:21, what are the gates of the New Jerusalem made of?",
+        answers: ["Gold", "Silver", "Pearls", "Precious stones"],
+        correctAnswerIndex: 2,
+        difficulty: "hard",
+        category: "Revelation"
+      },
+      // Romans Questions
+      {
+        text: "Romans 8:28 says all things work together for good to them that...",
+        answers: ["believe", "love God", "are called according to His purpose", "love God and are called according to His purpose"],
+        correctAnswerIndex: 3,
+        difficulty: "medium",
+        category: "Romans"
+      },
+      {
+        text: "According to Romans 3:23, all have sinned and come short of the...",
+        answers: ["love of God", "glory of God", "kingdom of God", "grace of God"],
+        correctAnswerIndex: 1,
+        difficulty: "easy",
+        category: "Romans"
+      },
+      // 1 Corinthians Questions
+      {
+        text: "According to 1 Corinthians 13:13, what are the three things that abide?",
+        answers: ["Faith, Hope, Love", "Faith, Hope, Charity", "Love, Joy, Peace", "Faith, Love, Joy"],
+        correctAnswerIndex: 0,
+        difficulty: "medium",
+        category: "1 Corinthians"
+      },
+      // Matthew Questions
+      {
+        text: "In the Sermon on the Mount, Jesus said 'Blessed are the meek, for they shall inherit the...'",
+        answers: ["kingdom", "earth", "riches", "glory"],
+        correctAnswerIndex: 1,
+        difficulty: "easy",
+        category: "Matthew"
+      },
+      // John Questions
+      {
+        text: "Complete John 3:16: 'For God so loved the world that He gave His only begotten...'",
+        answers: ["Son", "Child", "Lamb", "Savior"],
+        correctAnswerIndex: 0,
+        difficulty: "easy",
+        category: "John"
+      },
+      // Philippians Questions
+      {
+        text: "According to Philippians 4:13, 'I can do all things through...'",
+        answers: ["God who strengthens me", "Christ who strengthens me", "faith", "prayer"],
+        correctAnswerIndex: 1,
+        difficulty: "easy",
+        category: "Philippians"
+      },
+      // Ecclesiastes Questions
+      {
+        text: "Ecclesiastes 3:1 says 'To every thing there is a...'",
+        answers: ["purpose", "season", "time", "reason"],
+        correctAnswerIndex: 1,
+        difficulty: "medium",
+        category: "Ecclesiastes"
       }
     ];
 
     try {
-      await db.insert(questions).values(questionData);
-      console.log('Database seeded with questions');
+      for (const question of questionData) {
+        await db.insert(questions).values(question);
+      }
+      console.log('Database seeded with diverse biblical questions');
     } catch (error) {
       console.error('Error seeding database:', error);
     }
@@ -150,10 +270,8 @@ export class DatabaseStorage implements IStorage {
   }
 
   async deleteGameState(playerId: string): Promise<boolean> {
-    const result = await db
-      .delete(gameStates)
-      .where(eq(gameStates.playerId, playerId));
-    return (result.rowCount || 0) > 0;
+    const result = await db.delete(gameStates).where(eq(gameStates.playerId, playerId));
+    return result.rowCount > 0;
   }
 }
 
@@ -172,11 +290,11 @@ export class MemStorage implements IStorage {
   }
 
   private seedQuestions() {
-    const questionData: Omit<Question, 'id'>[] = [
+    const questionData = [
       {
         text: "Who was the father of Isaac?",
-        answers: ["Jacob", "Adam", "Abraham", "Moses"],
-        correctAnswerIndex: 2,
+        answers: ["Moses", "Abraham", "Jacob", "David"],
+        correctAnswerIndex: 1,
         difficulty: "easy",
         category: "patriarchs"
       },
@@ -193,61 +311,13 @@ export class MemStorage implements IStorage {
         correctAnswerIndex: 1,
         difficulty: "easy",
         category: "old-testament"
-      },
-      {
-        text: "What was the name of Moses' brother?",
-        answers: ["Aaron", "Joshua", "Caleb", "Samuel"],
-        correctAnswerIndex: 0,
-        difficulty: "medium",
-        category: "old-testament"
-      },
-      {
-        text: "In which city was Jesus born?",
-        answers: ["Jerusalem", "Nazareth", "Bethlehem", "Capernaum"],
-        correctAnswerIndex: 2,
-        difficulty: "easy",
-        category: "new-testament"
-      },
-      {
-        text: "How many apostles did Jesus have?",
-        answers: ["10", "11", "12", "13"],
-        correctAnswerIndex: 2,
-        difficulty: "easy",
-        category: "new-testament"
-      },
-      {
-        text: "Who was swallowed by a great fish?",
-        answers: ["Jonah", "Job", "Jeremiah", "Joel"],
-        correctAnswerIndex: 0,
-        difficulty: "medium",
-        category: "old-testament"
-      },
-      {
-        text: "What did God give Moses on Mount Sinai?",
-        answers: ["The Torah", "The Ten Commandments", "The Ark", "A burning bush"],
-        correctAnswerIndex: 1,
-        difficulty: "medium",
-        category: "old-testament"
-      },
-      {
-        text: "Who was the strongest man in the Bible?",
-        answers: ["David", "Goliath", "Samson", "Solomon"],
-        correctAnswerIndex: 2,
-        difficulty: "medium",
-        category: "old-testament"
-      },
-      {
-        text: "What was the first plague in Egypt?",
-        answers: ["Frogs", "Water to blood", "Locusts", "Darkness"],
-        correctAnswerIndex: 1,
-        difficulty: "hard",
-        category: "old-testament"
       }
     ];
 
     questionData.forEach(q => {
-      const question: Question = { ...q, id: this.currentQuestionId++ };
-      this.questions.set(question.id, question);
+      const id = this.currentQuestionId++;
+      const question: Question = { ...q, id };
+      this.questions.set(id, question);
     });
   }
 
@@ -274,7 +344,18 @@ export class MemStorage implements IStorage {
 
   async createGameState(insertGameState: InsertGameState): Promise<GameState> {
     const id = this.currentGameStateId++;
-    const gameState: GameState = { ...insertGameState, id };
+    const gameState: GameState = { 
+      ...insertGameState, 
+      id,
+      currentQuestionIndex: insertGameState.currentQuestionIndex ?? 0,
+      playerScore: insertGameState.playerScore ?? 0,
+      abrahamScore: insertGameState.abrahamScore ?? 0,
+      playerLevel: insertGameState.playerLevel ?? 1,
+      timeRemaining: insertGameState.timeRemaining ?? 15,
+      helpersUsed: insertGameState.helpersUsed ?? { askAdam: false, askEve: false, skipsUsed: 0 },
+      isActive: insertGameState.isActive ?? true,
+      abrahamTitle: insertGameState.abrahamTitle ?? "Desert Walker"
+    };
     this.gameStates.set(insertGameState.playerId, gameState);
     return gameState;
   }

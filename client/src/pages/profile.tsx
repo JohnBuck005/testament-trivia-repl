@@ -37,38 +37,41 @@ export default function Profile() {
             Settings
           </h2>
           
-          <div className="glass-card rounded-xl p-4">
+          <div className="glass-card rounded-xl p-4 profile-settings-hover cursor-pointer">
             <div className="flex items-center justify-between">
-              <span>Sound Effects</span>
+              <span className="text-white">Sound Effects</span>
               <div className="w-12 h-6 bg-yellow-400 rounded-full relative">
-                <div className="w-5 h-5 bg-white rounded-full absolute top-0.5 right-0.5"></div>
+                <div className="w-5 h-5 bg-white rounded-full absolute top-0.5 right-0.5 transition-all duration-300"></div>
               </div>
             </div>
           </div>
 
-          <div className="glass-card rounded-xl p-4">
+          <div className="glass-card rounded-xl p-4 profile-settings-hover cursor-pointer">
             <div className="flex items-center justify-between">
-              <span>Push Notifications</span>
+              <span className="text-white">Push Notifications</span>
               <div className="w-12 h-6 bg-gray-600 rounded-full relative">
-                <div className="w-5 h-5 bg-white rounded-full absolute top-0.5 left-0.5"></div>
+                <div className="w-5 h-5 bg-white rounded-full absolute top-0.5 left-0.5 transition-all duration-300"></div>
               </div>
             </div>
           </div>
 
-          <div className="glass-card rounded-xl p-4">
+          <div className="glass-card rounded-xl p-4 profile-settings-hover cursor-pointer">
             <div className="flex items-center justify-between">
-              <span>Dark Mode</span>
+              <span className="text-white">Dark Mode</span>
               <div className="w-12 h-6 bg-yellow-400 rounded-full relative">
-                <div className="w-5 h-5 bg-white rounded-full absolute top-0.5 right-0.5"></div>
+                <div className="w-5 h-5 bg-white rounded-full absolute top-0.5 right-0.5 transition-all duration-300"></div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Daily Verse */}
-        <div className="mt-auto text-center">
+        {/* Bible Verse */}
+        <div className="text-center mt-auto mb-20">
           <p className="text-yellow-300/80 italic text-sm font-light">
-            "Grow in grace and knowledge" - 2 Peter 3:18
+            "Grow in grace and knowledge"
+          </p>
+          <p className="text-yellow-300/60 text-xs mt-1">
+            2 Peter 3:18
           </p>
         </div>
       </div>

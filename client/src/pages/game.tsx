@@ -235,6 +235,13 @@ export default function Game() {
           timeRemaining={timeRemaining}
         />
 
+        <div className="mb-4">
+          <GameProgress
+            currentQuestion={currentQuestionIndex + 1}
+            totalQuestions={QUESTIONS_PER_GAME}
+          />
+        </div>
+
         {currentQuestion && (
           <>
             <QuestionDisplay question={currentQuestion} />
@@ -257,10 +264,15 @@ export default function Game() {
           isAnswered={isAnswered}
         />
 
-        <GameProgress
-          currentQuestion={currentQuestionIndex + 1}
-          totalQuestions={QUESTIONS_PER_GAME}
-        />
+        {/* Bible Verse */}
+        <div className="text-center mt-auto mb-20">
+          <p className="text-yellow-300/80 italic text-sm font-light">
+            "Trust in the Lord with all your heart"
+          </p>
+          <p className="text-yellow-300/60 text-xs mt-1">
+            Proverbs 3:5
+          </p>
+        </div>
       </div>
     </div>
   );
